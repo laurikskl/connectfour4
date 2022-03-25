@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stylesheets/style.css"/>
+    <title>C4</title>
+
+</head>
+
+<p class = "msg"> Make your window bigger</p>
+<div class ="main"><body>
+    <!-- <img class="background" src="images/background.png" alt="Background"> -->
+    <header>
+        <h1>C4</h1>
+        <p>A <strong>very</strong> explosive connect 4 game</p>
+    </header>
+
+    <div class="players">
+        <h2 id="p1_name">Programmer</h2>
+        <span class="invis" id="p1_turn"></span>
+        <span>
+            <p id="time_spent">0:00</p>
+            <p id="pieces_placed">0</p>
+        </span>
+        <span class="invis" id="p2_turn"></span>
+        <h2 id="p2_name">Mathematician</h2>
+    </div>
+
+    <form action="/" method="get">
+        <button type="submit">Return to home screen</button>
+    </form>
+
+    <p class="message" id="waiting"></p>
+
+</body></div>
+    <script src="javascripts/messages.js"></script>
+    <script src="javascripts/config.js"></script>
+    <script src="javascripts/game.js"></script>
+</html>

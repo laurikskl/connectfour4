@@ -1,0 +1,258 @@
+:root {
+  --redColor: #af00af;
+  --redColor_1: #ff37ff;
+  --blueColor: #000000;
+  --blueColor_1: #1d4a88;
+  --backgroundColor: #00B7FF;
+  --contentColor: #FFFFFF;
+  --cols: 7;
+}
+
+body {
+  padding: 50px;
+  text-align: center;
+  background-color: var(--backgroundColor);
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: var(--contentColor);;
+  pointer-events: none;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 60px;
+  text-align: center;
+  margin:0%;
+}
+p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.players {
+  display:grid;
+  align-content: center;
+  text-align: center;
+  grid-template-columns: 35% 10% 10% 10% 35%;
+}
+
+h2 {
+  display:inline;
+  font-size: 40px;
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
+
+h2#p1_name{
+  text-align: right;
+
+}
+
+h2#p2_name {
+  text-align: left;
+}
+
+.cell#p1_turn {
+  margin-left: 15px;
+  justify-self: start;
+  background-color: var(--redColor);;
+}
+
+.cell#p2_turn {
+  margin-right: 15px;
+  justify-self: end;
+  background-color: var(--blueColor);;
+}
+
+.invis {
+  visibility: hidden;
+}
+
+#hide {
+  display: none;
+}
+
+button {
+  background-color: white;
+  padding: 14px 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  pointer-events: auto;
+  border-radius: 12px;
+  font-size: 14px;
+  border: 2px solid #000000;
+}
+button:hover { 
+  background: #D3D3D3; 
+  cursor: pointer;
+}
+button:active {
+  background: #8d8d8d;
+}
+
+
+.columnRed:hover::before { 
+  display: block;
+  content: "";
+  position: absolute;
+  top: 20px;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: var(--redColor);;
+  font-size: 30px;
+}
+
+.columnBlue:hover::before { 
+  display: block;
+  content: "";
+  position: absolute;
+  top: 20px;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: var(--blueColor);;
+  font-size: 30px;
+}
+
+
+.wrapper {  
+  /*background-color: #00B7FF;*/
+  display:grid;
+  z-index: -999;
+  position: relative;
+  padding-top: 70px;
+  block-size: fit-content;
+  grid-template-columns: repeat(var(--cols), 44px);
+  /*transform: rotate(90deg);*/
+  justify-content: center;
+  align-content: center;
+  place-items: center;
+  pointer-events: auto;
+}
+.cell {
+  border: 2px solid #000000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: #FFFFFF;
+  font-size: 30px;
+}
+.cell#Red {
+  background-color: var(--redColor);;
+  animation: pop 0.1s 1;
+}
+.cell#Blue {
+  background-color: var(--blueColor);;
+  animation: pop 0.1s 1;
+}
+
+.cell#RedWin {
+  content: url("../images/flame.png");
+  background-color: var(--redColor);;
+  color: #555555;
+  animation: pop 0.1s 1, red_win 2s infinite;
+}
+
+.cell#BlueWin {
+  content: url("../images/flame.png");
+  color: #555555;
+  background-color: var(--blueColor);;
+  animation: pop 0.1s 1, blue_win 2s infinite;
+}
+
+.message {
+  color: #FFFFFF;
+  background-color: #888888;
+  padding: 30px;
+  border: 2px solid #000000;
+  position: absolute;
+  top: 23%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#waiting::after {
+  content: "Waiting for an opponent";
+}
+
+#aborted::after {
+  content: "The opponent left the game";
+}
+
+#win::after {
+  content: "You won!";
+}
+
+#loss::after {
+  content: "You lost!";
+}
+
+#draw::after {
+  content: "It's a draw!";
+}
+
+@keyframes pop {
+  0% {
+    margin: 20px;
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    margin: 0px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@keyframes red_win {
+  0% {
+    background-color: var(--redColor);
+  }
+  33% {
+    background-color: var(--redColor_1);
+  }
+  67% {
+    background-color: var(--redColor_1);
+  }
+  100% {
+    background-color: var(--redColor);
+  }
+}
+.msg {
+  display:none;
+  font-size: 60px;
+  text-align: center;
+  margin:0%;
+
+}
+@media (max-width: 1366px), (max-height: 768) {
+  .main { display: none; }
+  .msg {
+    display: block;
+  }
+  .wrapper{
+    display: none;
+  }
+}
+  
+
+@keyframes blue_win {
+  0% {
+    background-color: var(--blueColor);
+  }
+  33% {
+    background-color: var(--blueColor_1);
+  }
+  67% {
+    background-color: var(--blueColor_1);
+  }
+  100% {
+    background-color: var(--blueColor);
+  }
+}

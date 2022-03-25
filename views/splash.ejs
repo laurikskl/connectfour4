@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C4</title>
+    <link rel="stylesheet" href="./stylesheets/style.css"/>
+
+</head>
+<p class = "msg">Make your browser bigger.</p>
+<div class = "main"><body>
+    <!-- <img class="background" src="images/background.png" alt="Background"> -->
+    <header>
+        <h1>C4</h1>
+        <p>A <strong>very</strong> explosive connect 4 game</p>
+    </header>
+
+    <p>Drop pieces in the board. win by getting 4 pieces in a row horizontally, vertically or diagonally!</p>
+
+    <form action="/play" method="get">
+        <button type="submit">Find a game</button>
+    </form>
+
+    <p id="games_played">Games played: <%= gamesPlayed %></p>
+    <p id="games_live">Live games: <%= gamesLive %></p>
+    <p id="pieces_placed">Pieces placed: <%= piecesPlaced %></p>
+</body>
+</div>
+</html>
